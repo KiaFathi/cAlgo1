@@ -103,7 +103,3 @@ def normalized_in_degree_distribution(digraph):
 
     return {k: float(v) / num_in_degrees for k, v in distribution.iteritems()}
 
-
-print in_degree_distribution(EX_GRAPH1)
-print normalized_in_degree_distribution(EX_GRAPH1)
-
