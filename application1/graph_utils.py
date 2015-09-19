@@ -48,7 +48,6 @@ def make_complete_graph(num_nodes):
 
     return new_graph
 
-print make_complete_graph(-5)
 
 def compute_in_degrees(digraph):
     """
@@ -87,4 +86,24 @@ def in_degree_distribution(digraph):
             distribution[in_degrees[node]] = 1
 
     return distribution
+
+def normalized_in_degree_distribution(digraph):
+    """
+    Takes a directed graph, digraph, and calculate the normalized distribution
+    of the in-degrees of the graph.
+
+    Returns a dictionary whoe keys correspond to the in-degrees of nodes in the
+    graph. The value associated with each particular in-degree is the number of
+    nodes with that in-degree normalized by the total number of in-degrees
+    """
+    distribution = in_degree_distribution(digraph)
+    num_in_degrees = 0
+    for key in distribution:
+        num_in_degrees += distribution[key]
+
+    return {k: float(v) / num_in_degrees for k, v in distribution.iteritems()}
+
+
+print in_degree_distribution(EX_GRAPH1)
+print normalized_in_degree_distribution(EX_GRAPH1)
 
